@@ -1,0 +1,19 @@
+services:
+  app:
+    image: noozecrypt/coder-hack:1.0.0
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://coder-hack:coder-hack@db:27017/test?authSource=admin
+      SPRING_DOCKER_COMPOSE_ENABLED: false
+    depends_on:
+      - db
+
+  db:
+    image: 'mongo:7.0.15'
+    environment:
+      - 'MONGO_INITDB_DATABASE=coder-hack'
+      - 'MONGO_INITDB_ROOT_PASSWORD=coder-hack'
+      - 'MONGO_INITDB_ROOT_USERNAME=coder-hack'
+    ports:
+      - '27017:27017'

@@ -1,0 +1,9 @@
+services:
+  mongodb:
+    image: 'mongo:7.0.15'
+    environment:
+      - 'MONGO_INITDB_DATABASE=coder-hack'
+      - 'MONGO_INITDB_ROOT_PASSWORD=coder-hack'
+      - 'MONGO_INITDB_ROOT_USERNAME=coder-hack'
+    ports:
+      - '27017:27017'
